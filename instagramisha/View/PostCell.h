@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userPicView;
 //@property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
 //going to access this publicly in TimelineViewController
 -(void)configureCell: (Post *) post;

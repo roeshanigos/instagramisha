@@ -10,6 +10,7 @@
 #import "Post.h"
 #import <ParseUI/ParseUI.h>
 #import <DateTools/NSDate+DateTools.h>
+#import <Parse/Parse.h>
 
 @implementation PostCell
 
@@ -25,17 +26,31 @@
 }
 
 -(void)configureCell: (Post *) post {
+    self.post = post;
     self.postImageView.file = post[@"image"];
     [self.postImageView loadInBackground];
     self.captionLabel.text = post[@"caption"];
     self.createdAtLabel.text = [post.createdAt shortTimeAgoSinceNow];
     NSString *likes = [NSString stringWithFormat:@"%@", post[@"likeCount"]];
     self.likeLabel.text = likes;
-
     
-  
-
+}
+- (IBAction)didTapLike:(id)sender {
     
+    if (self.likeButton.selected){
+        self.likeButton.selected = false;
+        NSNumber *likeNumber = [NSNumber numberWithInteger:[self.post.likeCount intValue]-1];
+        self.likeLabel.text = [NSString stringWithFormat:@"%@", likeNumber];
+        self.post.likeCount = [NSNumber numberWithInteger:[self.post.likeCount intValue]-1];
+        [self.post saveInBackground];
+    }
+    else {
+        self.likeButton.selected = true;
+        NSNumber *likeNumber = [NSNumber numberWithInteger:[self.post.likeCount intValue]+1];
+        self.likeLabel.text = [NSString stringWithFormat:@"%@", likeNumber];
+        self.post.likeCount = [NSNumber numberWithInteger:[self.post.likeCount intValue]+1];
+        [self.post saveInBackground];
+    }
 }
 
 

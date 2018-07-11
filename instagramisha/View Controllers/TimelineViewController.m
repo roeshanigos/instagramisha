@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshIndicator;
+@property (assign, nonatomic) BOOL isMoreDataLoading;
+
 
 
 @end
@@ -110,17 +112,43 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //recycling and showing cells
-    
     PostCell *postCell = [self.tableView dequeueReusableCellWithIdentifier:@"postCell"];
     Post *post = self.posts[indexPath.row];
-    [postCell configureCell:post ];
-    //postCell.post = post;
-    //[postCell.imageView setImageWithURL:[NSURL URLWithString:post.image.url]];
+    [postCell configureCell:post];
+
     return postCell;    
     
 }
 
+-(void)getMoreData{
+        if (self.posts){
+            [self.tableView reloadData];
+            NSLog(@"yay");
+        }
+        else {
+            NSLog(@"oopsies");
+        }
+    
+}
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(!self.isMoreDataLoading){
+        // Calculate the position of one screen length before the bottom of the results
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            self.isMoreDataLoading = true;
+            
+            // Code to load more results
+            [self getMoreData];
+            
+        }
+    }
+    
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -138,9 +166,10 @@
         PostViewController *postViewController = [segue destinationViewController];
         postViewController.post = post;
     }
-    
- 
 }
+
+
+
 
 
 @end

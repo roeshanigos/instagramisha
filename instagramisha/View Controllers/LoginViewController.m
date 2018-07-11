@@ -8,11 +8,13 @@
 
 #import "LoginViewController.h"
 #import "Parse.h"
+#import "User.h"
 
 
 @interface LoginViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+
 @end
 
 @implementation LoginViewController
@@ -60,7 +62,7 @@
     }
     else {
         // initalizes a new user object ..  making a new user
-        PFUser *newUser = [PFUser user];
+        User *newUser = [User user];
         
         // set user properties
         newUser.username = self.usernameField.text;
@@ -114,6 +116,9 @@
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
+}
+- (IBAction)didTapAway:(id)sender {
+     [self.view endEditing:YES];
 }
 
 /*

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -15,8 +16,41 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = @"ishaID";
+        configuration.clientKey = @"ishaMasterKey";
+        configuration.server = @"https://instagramisha.herokuapp.com/parse";
+    }];
+    
+    [Parse initializeWithConfiguration:config];
+    
+//    PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
+//    gameScore[@"score"] = @1337;
+//    gameScore[@"playerName"] = @"Sean Plott";
+//    gameScore[@"cheatMode"] = @NO;
+//    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            NSLog(@"Object saved!");
+//        } else {
+//            NSLog(@"Error: %@", error.description);
+//        }
+//    }];
+    
+    PFUser *user = [PFUser currentUser];
+    if (user != nil){
+        NSLog(@"Welcome back!!!");
+        //accessing the storyboard ID
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        //we have to go to nav controller
+        UIViewController *tabBarNavigationController =  [storyboard instantiateViewControllerWithIdentifier:@"tabBarViewController"];
+        self.window.rootViewController = tabBarNavigationController;
+    }
+    
+    
     return YES;
 }
 

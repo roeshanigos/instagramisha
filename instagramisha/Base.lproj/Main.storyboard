@@ -145,7 +145,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmy-Uc-yHx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmy-Uc-yHx">
                                 <rect key="frame" x="15" y="460" width="11" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -159,12 +159,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahN-sb-iL4">
+                                <rect key="frame" x="0.0" y="522" width="375" height="153"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Lx8-A7-ixD"/>
                     </view>
                     <connections>
                         <outlet property="captionLabel" destination="S63-KT-Xcs" id="Ynn-C1-xxb"/>
+                        <outlet property="likeLabel" destination="zmy-Uc-yHx" id="5mx-2A-iZx"/>
                         <outlet property="postImageView" destination="Tzq-T5-Xjc" id="nx3-B3-Zoy"/>
                     </connections>
                 </viewController>
@@ -172,7 +177,7 @@
             </objects>
             <point key="canvasLocation" x="4548" y="-1936.2818590704649"/>
         </scene>
-        <!--Timeline View Controller-->
+        <!--Instagram-->
         <scene sceneID="X8c-rM-bxs">
             <objects>
                 <viewController id="Nke-gH-H1K" customClass="TimelineViewController" sceneMemberID="viewController">
@@ -318,7 +323,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0eq-XY-Jxi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lJD-J5-vHd">
+                    <navigationItem key="navigationItem" title="Instagram" id="lJD-J5-vHd">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="5pn-ua-1FN">
                             <connections>
                                 <action selector="didTapLogout:" destination="Nke-gH-H1K" id="2rw-OW-IoZ"/>

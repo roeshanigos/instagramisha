@@ -35,7 +35,7 @@
     [self.postImageView loadInBackground];
     self.captionLabel.text = post[@"caption"];
     NSString *likes = [NSString stringWithFormat:@"%@", post[@"likeCount"]];
-    self.likeLabel.text = likes;  
+    self.likeLabel.text = likes;   
 
 
 }

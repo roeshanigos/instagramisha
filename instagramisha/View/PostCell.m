@@ -33,6 +33,7 @@
     self.createdAtLabel.text = [post.createdAt shortTimeAgoSinceNow];
     NSString *likes = [NSString stringWithFormat:@"%@", post[@"likeCount"]];
     self.likeLabel.text = likes;
+    self.userPicView.layer.cornerRadius= self.userPicView.frame.size.height/2;
     
 }
 - (IBAction)didTapLike:(id)sender {

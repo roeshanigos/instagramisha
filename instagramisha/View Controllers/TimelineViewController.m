@@ -58,7 +58,7 @@
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
 //  [query whereKey:@"likesCount" greaterThan:@100];
-    query.limit = 20;
+    //query.limit = 20;
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {

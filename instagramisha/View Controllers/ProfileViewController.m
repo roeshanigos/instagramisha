@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshIndicator;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UILabel *postsCount;
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 
 @end
 
@@ -42,6 +43,8 @@
     [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:self. refreshControl];
     [self.collectionView addSubview:self.refreshControl];
+    self.userImageView.layer.cornerRadius= self.userImageView.frame.size.height/2;
+
    
 }
 

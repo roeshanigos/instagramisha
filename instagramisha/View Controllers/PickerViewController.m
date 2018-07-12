@@ -82,7 +82,7 @@
     
     // Do something with the images (based on your use case)
     //WHY CALL TO SELF ASK
-    UIImage *newResizedImage = [self resizeImage:editedImage withSize:CGSizeMake(200.0, 200.0)];
+    UIImage *newResizedImage = [self resizeImage:editedImage withSize:CGSizeMake(400.0, 400.0)];
     self.instaImageView.image = newResizedImage;
     
     // Dismiss UIImagePickerController to go back to your original view controller
@@ -112,7 +112,6 @@
             
         }];
     }
-    
 }
 
 

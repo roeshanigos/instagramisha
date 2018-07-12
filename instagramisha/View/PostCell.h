@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Post.h"
 #import <ParseUI/ParseUI.h>
+#import "PostViewController.h"
 
-@interface PostCell : UITableViewCell
+@interface PostCell : UITableViewCell <PostViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet PFImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (strong, nonatomic)  Post *post;

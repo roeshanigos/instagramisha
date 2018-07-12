@@ -35,26 +35,48 @@
     [self.postImageView loadInBackground];
     self.captionLabel.text = post[@"caption"];
     NSString *likes = [NSString stringWithFormat:@"%@", post[@"likeCount"]];
-    self.likeLabel.text = likes;   
+    self.likeLabel.text = likes;
+    self.likeButton.selected = [post likedByCurrentUser];
 
 
 }
 
+-(void)toggleLike{
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query includeKey:@"author"];
+    
+    [query getObjectInBackgroundWithId:self.post.objectId block:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (object){
+            Post *post = (Post *)object;
+            if ([post likedByCurrentUser]) {
+                [post incrementKey:@"likeCount" byAmount:@(-1)];
+                [post removeObject:PFUser.currentUser.objectId forKey:@"likedBy"];
+            }
+            else {
+                [post incrementKey:@"likeCount" byAmount:(@1)];
+                [post removeObject:PFUser.currentUser.objectId forKey:@"likedBy"];
+            }
+            [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if (succeeded){
+                    self.post = post;
+                    [self refresh];
+                }
+            }];
+        }
+        
+        else {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+    }];
+}
+
+- (void) refresh {
+    self.likeButton.selected = [self.post likedByCurrentUser];
+    
+}
+
 - (IBAction)didTapLike:(id)sender {
-    if (self.likeButton.selected){
-        self.likeButton.selected = false;
-        NSNumber *likeNumber = [NSNumber numberWithInteger:[self.post.likeCount intValue]-1];
-        self.likeLabel.text = [NSString stringWithFormat:@"%@", likeNumber];
-        self.post.likeCount = [NSNumber numberWithInteger:[self.post.likeCount intValue]-1];
-        [self.post saveInBackground];
-    }
-    else {
-        self.likeButton.selected = true;
-        NSNumber *likeNumber = [NSNumber numberWithInteger:[self.post.likeCount intValue]+1];
-        self.likeLabel.text = [NSString stringWithFormat:@"%@", likeNumber];
-        self.post.likeCount = [NSNumber numberWithInteger:[self.post.likeCount intValue]+1];
-        [self.post saveInBackground];
-    }
+    [self toggleLike];
 }
 
 #pragma mark - Navigation

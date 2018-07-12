@@ -40,7 +40,6 @@
     if (!image) {
         return nil;
     }
-    
     NSData *imageData = UIImagePNGRepresentation(image);
     // get image data and check if that is not nil
     if (!imageData) {
@@ -48,6 +47,10 @@
     }
     
     return [PFFile fileWithName:@"image.png" data:imageData];
+}
+
+- (BOOL)likedByCurrentUser{
+    return [self.likedBy containsObject:PFUser.currentUser.objectId];
 }
 
 @end

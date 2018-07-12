@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3516F2AA20F6B90F00C7E59D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3516F2A920F6B90F00C7E59D /* User.m */; };
+		3516F2AD20F721B800C7E59D /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3516F2AC20F721B800C7E59D /* CustomCameraViewController.m */; };
+		3516F2AF20F7244B00C7E59D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3516F2AE20F7244B00C7E59D /* AVFoundation.framework */; };
 		35D8D5CF20F4125900B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D5CE20F4125900B5D12C /* AppDelegate.m */; };
 		35D8D5D220F4125900B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D5D120F4125900B5D12C /* ViewController.m */; };
 		35D8D5D520F4125900B5D12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D5D320F4125900B5D12C /* Main.storyboard */; };
@@ -50,6 +52,9 @@
 		08C6CAA55698858E14934D15 /* Pods-instagramishaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramishaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instagramishaTests/Pods-instagramishaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3516F2A820F6B90F00C7E59D /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3516F2A920F6B90F00C7E59D /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3516F2AB20F721B800C7E59D /* CustomCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
+		3516F2AC20F721B800C7E59D /* CustomCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
+		3516F2AE20F7244B00C7E59D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		35D8D5CA20F4125900B5D12C /* instagramisha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagramisha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D5CD20F4125900B5D12C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35D8D5CE20F4125900B5D12C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -97,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3516F2AF20F7244B00C7E59D /* AVFoundation.framework in Frameworks */,
 				C08C13FBA5B9ED510E8B334E /* libPods-instagramisha.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +198,8 @@
 				35D8D61220F56D5700B5D12C /* PostViewController.m */,
 				35D8D61420F5DA1E00B5D12C /* ProfileViewController.h */,
 				35D8D61520F5DA1E00B5D12C /* ProfileViewController.m */,
+				3516F2AB20F721B800C7E59D /* CustomCameraViewController.h */,
+				3516F2AC20F721B800C7E59D /* CustomCameraViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -221,6 +229,7 @@
 		8B1D317BA0ACCFBF6A87CFA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3516F2AE20F7244B00C7E59D /* AVFoundation.framework */,
 				9DDF87CA89D8DDB31CA2CAAF /* libPods-instagramisha.a */,
 				7829F7B4B3D1112B5E3B5820 /* libPods-instagramishaTests.a */,
 				593E05A8D88AD60374967DC0 /* libPods-instagramishaUITests.a */,
@@ -469,6 +478,7 @@
 				3516F2AA20F6B90F00C7E59D /* User.m in Sources */,
 				35D8D60820F4367D00B5D12C /* PickerViewController.m in Sources */,
 				35D8D60520F4279A00B5D12C /* TimelineViewController.m in Sources */,
+				3516F2AD20F721B800C7E59D /* CustomCameraViewController.m in Sources */,
 				35D8D60B20F529C800B5D12C /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

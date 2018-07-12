@@ -12,6 +12,7 @@
 #import <DateTools/NSDate+DateTools.h>
 #import <Parse/Parse.h>
 
+
 @implementation PostCell
 
 - (void)awakeFromNib {
@@ -30,29 +31,56 @@
     self.postImageView.file = post[@"image"];
     [self.postImageView loadInBackground];
     self.captionLabel.text = post[@"caption"];
+    self.likeButton.selected = [post likedByCurrentUser];
     self.createdAtLabel.text = [post.createdAt shortTimeAgoSinceNow];
     NSString *likes = [NSString stringWithFormat:@"%@", post[@"likeCount"]];
     self.likeLabel.text = likes;
     self.userPicView.layer.cornerRadius= self.userPicView.frame.size.height/2;
+    self.likeButton.selected = [post likedByCurrentUser];
     
-}
-- (IBAction)didTapLike:(id)sender {
-    
-    if (self.likeButton.selected){
-        self.likeButton.selected = false;
-        NSNumber *likeNumber = [NSNumber numberWithInteger:[self.post.likeCount intValue]-1];
-        self.likeLabel.text = [NSString stringWithFormat:@"%@", likeNumber];
-        self.post.likeCount = [NSNumber numberWithInteger:[self.post.likeCount intValue]-1];
-        [self.post saveInBackground];
-    }
-    else {
-        self.likeButton.selected = true;
-        NSNumber *likeNumber = [NSNumber numberWithInteger:[self.post.likeCount intValue]+1];
-        self.likeLabel.text = [NSString stringWithFormat:@"%@", likeNumber];
-        self.post.likeCount = [NSNumber numberWithInteger:[self.post.likeCount intValue]+1];
-        [self.post saveInBackground];
-    }
 }
 
+-(void)toggleLike{
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query includeKey:@"author"];
+    
+    [query getObjectInBackgroundWithId:self.post.objectId block:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (object){
+            Post *post = (Post *)object;
+            if ([post likedByCurrentUser]) {
+                [post incrementKey:@"likeCount" byAmount:@(-1)];
+                [post removeObject:PFUser.currentUser.objectId forKey:@"likedBy"];
+            }
+            else {
+                [post incrementKey:@"likeCount" byAmount:(@1)];
+                [post removeObject:PFUser.currentUser.objectId forKey:@"likedBy"];
+            }
+            [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if (succeeded){
+                    self.post = post;
+                    [self refresh];
+                }
+            }];
+        }
+        
+        else {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        }];
+}
+
+- (void) refresh {
+    self.likeButton.selected = [self.post likedByCurrentUser];
+    
+}
+
+- (IBAction)didTapLike:(id)sender {
+    [self toggleLike];
+}
+
+-(void)didUpdatePost:(Post *) post{
+    self.post = post;
+    [self refresh];
+}
 
 @end

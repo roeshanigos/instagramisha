@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 #import "PostCollectionViewCell.h"
+#import "PostViewController.h"
 #import "Post.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -36,7 +37,7 @@
     
     CGFloat postsPerLine = 3;
     CGFloat itemWidth = self.collectionView.frame.size.width/ postsPerLine;
-    CGFloat itemHeight = itemWidth * 1.5;
+    CGFloat itemHeight = itemWidth ;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -104,14 +105,21 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqual:@"detailPostColl" ]){
+        UICollectionViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        Post *post = self.posts[indexPath.row];
+        PostViewController *postViewController = [segue destinationViewController];
+        postViewController.post = post;
+    }
 }
-*/
 
 @end

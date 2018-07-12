@@ -19,8 +19,7 @@
 
 
 
-
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 @property (strong, nonatomic) NSArray *posts;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
@@ -42,15 +41,42 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(fetch) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self. refreshControl];
     [self.tableView addSubview:self.refreshControl];
     
-    [self fetchPosts];
+    [self fetchPosts:@20];
 }
 
-
--(void)fetchPosts{
+//REFACTOR AND FIGURE OUT HOW TO CALL SELECT WITH PARAMETERS
+-(void)fetch {
+    [self.refreshIndicator startAnimating];
+    
+    //PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    PFQuery *query = [Post query];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    //  [query whereKey:@"likesCount" greaterThan:@100];
+    //query.limit = post_count;
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.posts = posts;
+            [self.tableView reloadData];
+            
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+            //[self.tableView reloadData];
+            
+        }
+        [self.refreshIndicator stopAnimating];
+    }];
+    [self.refreshControl endRefreshing];
+    
+    
+}
+-(void)fetchPosts:(NSNumber *) post_count {
     [self.refreshIndicator startAnimating]; 
 
     //PFQuery *query = [PFQuery queryWithClassName:@"Post"];
@@ -58,7 +84,7 @@
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
 //  [query whereKey:@"likesCount" greaterThan:@100];
-    //query.limit = 20;
+    query.limit = post_count;
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -68,6 +94,7 @@
 
         } else {
             NSLog(@"%@", error.localizedDescription);
+            //no need to reload since it is an error
             //[self.tableView reloadData];
 
         }
@@ -120,17 +147,6 @@
     
 }
 
--(void)getMoreData{
-        if (self.posts){
-            [self.tableView reloadData];
-            NSLog(@"yay");
-        }
-        else {
-            NSLog(@"oopsies");
-        }
-    
-}
-
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if(!self.isMoreDataLoading){
@@ -143,11 +159,9 @@
             self.isMoreDataLoading = true;
             
             // Code to load more results
-            [self getMoreData];
-            
+            [self fetchPosts:@50];
         }
-    }
-    
+    }    
 }
 #pragma mark - Navigation
 

@@ -9,6 +9,7 @@
 #import "PickerViewController.h"
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 //we have to declare a class that implements the require protocols for
 @interface PickerViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -81,7 +82,7 @@
     
     // Do something with the images (based on your use case)
     //WHY CALL TO SELF ASK
-    UIImage *newResizedImage = [self resizeImage:editedImage withSize:CGSizeMake(400.0, 400.0)];
+    UIImage *newResizedImage = [self resizeImage:editedImage withSize:CGSizeMake(200.0, 200.0)];
     self.instaImageView.image = newResizedImage;
     
     // Dismiss UIImagePickerController to go back to your original view controller
@@ -94,20 +95,24 @@
 }
 
 - (IBAction)didTapShare:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if(![self.instaImageView.image isEqual:[UIImage imageNamed:@"image_placeholder"]]){
         [Post postUserImage:self.instaImageView.image withCaption:self.captionTextView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if(succeeded){
                 self.instaImageView.image = [UIImage imageNamed:@"placeholder_image"];
                 self.captionTextView.text = @"";
                 NSLog(@"posted!!");
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [self dismissViewControllerAnimated:YES completion:nil];
+                
             }
             else {
                 NSLog(@"ERROR: @%" , error.localizedDescription);
             }
+            
         }];
     }
-    [self dismissViewControllerAnimated:true completion:nil];
-
+    
 }
 
 

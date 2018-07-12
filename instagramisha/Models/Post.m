@@ -31,14 +31,7 @@
     newPost.likeCount = @(0);
     newPost.commentCount = @(0);
     
-    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"succeeded");
-        }
-        else {
-            NSLog(@"failed");
-        }
-    }];
+    [newPost saveInBackgroundWithBlock:completion];
 }
 
 + (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {

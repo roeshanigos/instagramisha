@@ -6,9 +6,11 @@ target 'instagramisha' do
   # use_frameworks!
 
   pod 'Parse'
- pod 'ParseUI' 
- pod 'AFNetworking'
-pod 'DateTools'
+  pod 'ParseUI' 
+  pod 'AFNetworking'
+  pod 'DateTools'
+  pod 'MBProgressHUD'
+
 
   # Pods for instagramisha
 

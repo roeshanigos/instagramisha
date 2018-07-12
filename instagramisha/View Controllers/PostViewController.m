@@ -12,11 +12,11 @@
 #import <ParseUI/ParseUI.h>
 
 @interface PostViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
 @end
 
 @implementation PostViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -40,6 +40,22 @@
 
 }
 
+- (IBAction)didTapLike:(id)sender {
+    if (self.likeButton.selected){
+        self.likeButton.selected = false;
+        NSNumber *likeNumber = [NSNumber numberWithInteger:[self.post.likeCount intValue]-1];
+        self.likeLabel.text = [NSString stringWithFormat:@"%@", likeNumber];
+        self.post.likeCount = [NSNumber numberWithInteger:[self.post.likeCount intValue]-1];
+        [self.post saveInBackground];
+    }
+    else {
+        self.likeButton.selected = true;
+        NSNumber *likeNumber = [NSNumber numberWithInteger:[self.post.likeCount intValue]+1];
+        self.likeLabel.text = [NSString stringWithFormat:@"%@", likeNumber];
+        self.post.likeCount = [NSNumber numberWithInteger:[self.post.likeCount intValue]+1];
+        [self.post saveInBackground];
+    }
+}
 
 #pragma mark - Navigation
 

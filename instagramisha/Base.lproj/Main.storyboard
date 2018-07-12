@@ -63,6 +63,7 @@
                                 <state key="normal" title="Don't have an account? Sign Up."/>
                                 <connections>
                                     <action selector="didTapRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mGI-Ve-amK"/>
+                                    <segue destination="qYs-ih-MW1" kind="presentation" id="IeR-YR-gI5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,6 +106,21 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="405.60000000000002" y="-1000.7496251874064"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FUs-n8-zY3">
+            <objects>
+                <viewController id="qYs-ih-MW1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xPE-i3-jjP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="UNF-Hi-wtw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RE3-NH-mcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="406" y="-177"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ges-ZE-M2o">
@@ -298,7 +314,7 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a caption for my picture" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMp-3W-XOU">
                                                     <rect key="frame" x="9" y="428.5" width="351" height="20.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="c3f-eB-Uu2"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="8" id="c3f-eB-Uu2"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="8" id="fMA-Qv-cM5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

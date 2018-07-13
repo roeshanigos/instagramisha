@@ -37,37 +37,59 @@
     NSString *likes = [NSString stringWithFormat:@"%@", post[@"likeCount"]];
     self.likeLabel.text = likes;
     self.likeButton.selected = [post likedByCurrentUser];
+    if(self.post.didLiked){
+        self.likeButton.selected = YES;
+    }
+    else {
+        self.likeButton.selected = NO;
+    }
 
 
 }
 
 -(void)toggleLike{
-    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    [query includeKey:@"author"];
-    
-    [query getObjectInBackgroundWithId:self.post.objectId block:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        if (object){
-            Post *post = (Post *)object;
-            if ([post likedByCurrentUser]) {
-                [post incrementKey:@"likeCount" byAmount:@(-1)];
-                [post removeObject:PFUser.currentUser.objectId forKey:@"likedBy"];
-            }
-            else {
-                [post incrementKey:@"likeCount" byAmount:(@1)];
-                [post removeObject:PFUser.currentUser.objectId forKey:@"likedBy"];
-            }
-            [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                if (succeeded){
-                    self.post = post;
-                    [self refresh];
-                }
-            }];
+        if(self.post.didLiked) {
+            self.likeButton.selected = NO;
+            self.post.didLiked = NO;
+            self.post.likeCount = @([self.post.likeCount intValue]-1);
+            self.likeLabel.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
+            [self.post saveInBackground];
+            
         }
-        
         else {
-            NSLog(@"Error: %@", error.localizedDescription);
+            self.likeButton.selected = YES;
+            self.post.didLiked = YES;
+            self.post.likeCount = @([self.post.likeCount intValue] + 1);
+            self.likeLabel.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
+            [self.post saveInBackground];
+            
         }
-    }];
+//    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+//    [query includeKey:@"author"];
+//
+//    [query getObjectInBackgroundWithId:self.post.objectId block:^(PFObject * _Nullable object, NSError * _Nullable error) {
+//        if (object){
+//            Post *post = (Post *)object;
+//            if ([post likedByCurrentUser]) {
+//                [post incrementKey:@"likeCount" byAmount:@(-1)];
+//                [post removeObject:PFUser.currentUser.objectId forKey:@"likedBy"];
+//            }
+//            else {
+//                [post incrementKey:@"likeCount" byAmount:(@1)];
+//                [post removeObject:PFUser.currentUser.objectId forKey:@"likedBy"];
+//            }
+//            [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//                if (succeeded){
+//                    self.post = post;
+//                    [self refresh];
+//                }
+//            }];
+//        }
+//        
+//        else {
+//            NSLog(@"Error: %@", error.localizedDescription);
+//        }
+//    }];
 }
 
 - (void) refresh {

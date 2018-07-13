@@ -12,6 +12,8 @@
 #import "PostCollectionViewCell.h"
 #import "PostViewController.h"
 #import "Post.h"
+#import "User.h"
+#import "UpdateImageViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -19,7 +21,9 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshIndicator;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UILabel *postsCount;
-@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet PFImageView *userImageView;
+@property (strong, nonatomic) User *user;
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
 
 @end
 
@@ -45,7 +49,15 @@
     [self.collectionView addSubview:self. refreshControl];
     [self.collectionView addSubview:self.refreshControl];
     self.userImageView.layer.cornerRadius= self.userImageView.frame.size.height/2;
-
+    User *user = [User currentUser];
+    PFFile *profile_image = user.profileImage;
+    self.userImageView.file = profile_image;
+    self.userLabel.text = user.username;
+    //PFFiles is a pointer with URL
+    [self.userImageView loadInBackground];
+    [self.collectionView reloadData];
+    
+   
    
 }
 
@@ -100,7 +112,6 @@
         [self.refreshIndicator stopAnimating];
     }];
     [self.refreshControl endRefreshing];
-    
     
 }
 

@@ -24,9 +24,9 @@
     // Do any additional setup after loading the view.
     
 }
-- (IBAction)didTapRegister:(id)sender {
-  [self performSegueWithIdentifier:@"regSeg" sender:nil];
-}
+//- (IBAction)didTapRegister:(id)sender {
+//  [self performSegueWithIdentifier:@"regSeg" sender:nil];
+//}
 - (IBAction)didTapLogin:(id)sender {
     [self loginUser];
 }

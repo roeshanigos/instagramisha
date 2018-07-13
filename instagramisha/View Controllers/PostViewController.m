@@ -10,6 +10,8 @@
 #import "Post.h"
 #import "PostCell.h"
 #import <ParseUI/ParseUI.h>
+#import <DateTools/DateTools.h>
+#import "User.h"
 
 @interface PostViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
@@ -32,11 +34,19 @@
 
 -(void)configureCell: (Post *) post {
     self.postImageView.file = post[@"image"];
+    User *user = [User currentUser];
+    PFFile *profile_image = user.profileImage;
+    self.userImageView.file = profile_image;
+    self.userLabel.text = user.username; 
+    //loadInBAckground downloads the image
     [self.postImageView loadInBackground];
+    self.userImageView.layer.cornerRadius= self.userImageView.frame.size.height/2;
+    self.userImageView.layer.cornerRadius= self.userImageView.frame.size.height/2;
     self.captionLabel.text = post[@"caption"];
     NSString *likes = [NSString stringWithFormat:@"%@", post[@"likeCount"]];
     self.likeLabel.text = likes;
     self.likeButton.selected = [post likedByCurrentUser];
+    self.createdAtLabel.text = [post.createdAt timeAgoSinceNow];
     if(self.post.didLiked){
         self.likeButton.selected = YES;
     }

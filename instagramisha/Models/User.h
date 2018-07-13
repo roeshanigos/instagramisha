@@ -7,10 +7,12 @@
 //
 
 #import "PFUser.h"
-#import "Parse.h"
+#import <Parse/Parse.h>
 
 @interface User : PFUser<PFSubclassing>
 
 @property PFFile *profileImage;
+@property NSString *bio; 
+- (void) updateDefault:(UIImage *)photo withCompletion:(PFBooleanResultBlock)completion;
 
 @end

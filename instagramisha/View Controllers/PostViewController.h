@@ -18,9 +18,14 @@
 
 @interface PostViewController : UIViewController
 @property (weak, nonatomic) IBOutlet PFImageView *postImageView;
+
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (strong, nonatomic)  Post *post;
 @property (weak, nonatomic) IBOutlet UILabel *likeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
+@property (weak, nonatomic) IBOutlet PFImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+
 @property (strong, nonatomic) id<PostViewControllerDelegate> delegate;
 
 

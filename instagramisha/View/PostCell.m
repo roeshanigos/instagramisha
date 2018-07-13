@@ -11,6 +11,8 @@
 #import <ParseUI/ParseUI.h>
 #import <DateTools/NSDate+DateTools.h>
 #import <Parse/Parse.h>
+#import "User.h"
+
 
 
 @implementation PostCell
@@ -28,14 +30,20 @@
 
 -(void)configureCell: (Post *) post {
     self.post = post;
+    User *user = [User currentUser];
+    PFFile *profile_image = user.profileImage;
+    self.userImageView.file = profile_image;
+    self.userLabel.text = user.username;
+    //PFFiles is a pointer with URL
+    [self.userImageView loadInBackground];
     self.postImageView.file = post[@"image"];
     [self.postImageView loadInBackground];
     self.captionLabel.text = post[@"caption"];
     self.likeButton.selected = [post likedByCurrentUser];
-    self.createdAtLabel.text = [post.createdAt shortTimeAgoSinceNow];
+    self.createdAtLabel.text = [post.createdAt timeAgoSinceNow];
     NSString *likes = [NSString stringWithFormat:@"%@", post[@"likeCount"]];
     self.likeLabel.text = likes;
-    self.userPicView.layer.cornerRadius= self.userPicView.frame.size.height/2;
+    self.userImageView.layer.cornerRadius= self.userImageView.frame.size.height/2;
     //self.likeButton.selected = [post likedByCurrentUser];
     
     if(self.post.didLiked){

@@ -18,10 +18,13 @@
 @property (nonatomic, strong) PFFile *image;
 @property (nonatomic, strong) NSNumber *likeCount;
 @property (nonatomic, strong) NSNumber *commentCount;
+//wont need this take this out when cleaning code
 @property (nonatomic, strong) NSArray *likedBy;
 @property (nonatomic) BOOL didLiked;
 
 
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image;
 - (BOOL)likedByCurrentUser;
+
 @end

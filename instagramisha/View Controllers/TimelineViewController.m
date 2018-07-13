@@ -45,6 +45,8 @@
     [self.tableView addSubview:self. refreshControl];
     [self.tableView addSubview:self.refreshControl];
     
+    
+    
     [self fetchPosts:@20];
 }
 
@@ -68,13 +70,10 @@
         } else {
             NSLog(@"%@", error.localizedDescription);
             //[self.tableView reloadData];
-            
         }
         [self.refreshIndicator stopAnimating];
     }];
     [self.refreshControl endRefreshing];
-    
-    
 }
 -(void)fetchPosts:(NSNumber *) post_count {
     [self.refreshIndicator startAnimating]; 

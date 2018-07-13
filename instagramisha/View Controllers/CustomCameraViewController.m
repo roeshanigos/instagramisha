@@ -250,11 +250,14 @@
     
 - (IBAction)didTapCaption:(id)sender {
     //NSString *customText =
-    NSString *customText = self.captionText.text;
+    //NSString *customText = self.captionText.text;
     [self.captionText resignFirstResponder];
 }
 
-
+-(void)touchBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.captionText resignFirstResponder];
+    
+}
 
 
 /*

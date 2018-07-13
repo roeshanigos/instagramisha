@@ -16,6 +16,7 @@
 @dynamic caption;
 @dynamic image;
 @dynamic likeCount;
+//remove this when cleaning code
 //@dynamic likedBy;
 @dynamic commentCount;
 
@@ -50,6 +51,7 @@
     return [PFFile fileWithName:@"image.png" data:imageData];
 }
 
+//delete this when cleaning code
 - (BOOL)likedByCurrentUser{
     return [self.likedBy containsObject:PFUser.currentUser.objectId];
 }

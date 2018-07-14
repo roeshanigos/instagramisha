@@ -7,6 +7,7 @@
 //
 
 #import "UpdateImageViewController.h"
+#import "ProfileViewController.h"
 #import <ParseUI.h>
 #import <PFUser.h>
 #import "Post.h"
@@ -72,8 +73,10 @@
     if (image) {
         user.profileImage = [Post getPFFileFromImage:image];
         [user saveInBackground];
+         
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
@@ -87,6 +90,7 @@
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
+    
 }
 
 

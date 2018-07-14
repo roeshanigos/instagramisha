@@ -57,8 +57,14 @@
     [self.userImageView loadInBackground];
     [self.collectionView reloadData];
     
+
    
-   
+}
+-(void)viewWillAppear:(BOOL)animated{
+    User *user = [User currentUser];
+    PFFile *profile_image = user.profileImage;
+    self.userImageView.file = profile_image;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,6 +118,7 @@
         [self.refreshIndicator stopAnimating];
     }];
     [self.refreshControl endRefreshing];
+    [self.collectionView reloadData];
     
 }
 

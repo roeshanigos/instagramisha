@@ -9,7 +9,8 @@
 #import "CustomCameraViewController.h"
 #import "Post.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-#import "CustomCaptionViewController.h"
+#import "ProfileViewController.h"
+
 
 
 @interface CustomCameraViewController () <AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -18,9 +19,10 @@
 @property (nonatomic) AVCaptureSession *session;
 @property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
 @property (nonatomic) Post *post;
-
 @property (weak, nonatomic) IBOutlet UITextView *captionTextView;
 @property (nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+@property (strong, nonatomic) ProfileViewController *collectionView;
+
 
 @end
 

@@ -225,7 +225,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahN-sb-iL4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6nf-e6-qOG" customClass="PFImageView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6nf-e6-qOG" customClass="PFImageView">
                                 <rect key="frame" x="15" y="67" width="45" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="5X9-6g-Qe9"/>
@@ -427,7 +427,7 @@
                                                         <constraint firstAttribute="width" constant="371" id="tbP-VX-OLj"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="ASN-BT-55F" customClass="PFImageView">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ASN-BT-55F" customClass="PFImageView">
                                                     <rect key="frame" x="15" y="15" width="44" height="41"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="41" id="RPY-kf-hRj"/>
@@ -774,7 +774,7 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="Wzf-sB-TNi" customClass="PFImageView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Wzf-sB-TNi" customClass="PFImageView">
                                 <rect key="frame" x="16" y="71" width="116" height="111"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="116" id="2Pt-Cb-fzy"/>
@@ -845,7 +845,7 @@
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="LeO-eo-WGR" appends="YES" id="Cdw-Mp-aVT"/>
-                                    <outletCollection property="gestureRecognizers" destination="Ipd-cj-md3" appends="YES" id="Sxx-g8-smb"/>
+                                    <outletCollection property="gestureRecognizers" destination="IU5-Qf-MDT" appends="YES" id="LJn-fn-BNi"/>
                                 </connections>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BKM-Bw-LuV">
@@ -952,9 +952,9 @@
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="LeO-eo-WGR"/>
-                <tapGestureRecognizer id="Ipd-cj-md3">
+                <tapGestureRecognizer id="IU5-Qf-MDT">
                     <connections>
-                        <action selector="didTapAway:" destination="ahj-MV-Biq" id="9a2-ID-5Jh"/>
+                        <action selector="didTapAway:" destination="ahj-MV-Biq" id="j8Z-FO-18Y"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1110,7 +1110,6 @@
     <resources>
         <image name="InstagramLogo" width="3300" height="936"/>
         <image name="circle pluss" width="80" height="80"/>
-        <image name="download" width="666" height="644"/>
         <image name="feed_tab" width="25" height="25"/>
         <image name="icons8-bookmark-50" width="50" height="50"/>
         <image name="icons8-camera-50" width="50" height="50"/>
@@ -1127,7 +1126,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UqB-rv-Rrq"/>
-        <segue reference="zTn-RA-Bpb"/>
+        <segue reference="UES-lT-roO"/>
         <segue reference="toj-zB-Cc0"/>
     </inferredMetricsTieBreakers>
 </document>

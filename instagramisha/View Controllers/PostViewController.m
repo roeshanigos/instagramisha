@@ -41,7 +41,6 @@
     //loadInBAckground downloads the image
     [self.postImageView loadInBackground];
     self.userImageView.layer.cornerRadius= self.userImageView.frame.size.height/2;
-    self.userImageView.layer.cornerRadius= self.userImageView.frame.size.height/2;
     self.captionLabel.text = post[@"caption"];
     NSString *likes = [NSString stringWithFormat:@"%@", post[@"likeCount"]];
     self.likeLabel.text = likes;

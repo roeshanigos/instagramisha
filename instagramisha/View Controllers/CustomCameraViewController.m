@@ -9,6 +9,7 @@
 #import "CustomCameraViewController.h"
 #import "Post.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "CustomCaptionViewController.h"
 
 
 @interface CustomCameraViewController () <AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -18,9 +19,8 @@
 @property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
 @property (nonatomic) Post *post;
 
+@property (weak, nonatomic) IBOutlet UITextView *captionTextView;
 @property (nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
-
-
 
 @end
 
@@ -231,7 +231,7 @@
 - (IBAction)didTapShare:(id)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if(![self.captureImageView.image isEqual:[UIImage imageNamed:@"image_placeholder"]]){
-        [Post postUserImage:[self fixOrientationOfImage:self.captureImageView.image] withCaption:@"" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        [Post postUserImage:[self fixOrientationOfImage:self.captureImageView.image] withCaption:self.captionTextView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if(succeeded){
                 self.captureImageView.image = [UIImage imageNamed:@"placeholder_image"];
                 //self.captionTextView.text = @"";
@@ -247,16 +247,20 @@
         }];
 }
 }
-    
-- (IBAction)didTapCaption:(id)sender {
-    //NSString *customText =
-    //NSString *customText = self.captionText.text;
-    [self.captionText resignFirstResponder];
-}
+
 
 -(void)touchBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.captionText resignFirstResponder];
     
+}
+- (IBAction)didTapAway:(id)sender {
+    [self.view endEditing:YES];
+}
+- (IBAction)didTapCaption:(id)sender {
+    [UIView animateWithDuration:1 animations:^{
+        self.captionTextView.frame.origin.y-500;
+    }];
+
 }
 
 

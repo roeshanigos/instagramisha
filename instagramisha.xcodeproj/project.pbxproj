@@ -10,6 +10,7 @@
 		3516F2AA20F6B90F00C7E59D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3516F2A920F6B90F00C7E59D /* User.m */; };
 		3516F2AD20F721B800C7E59D /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3516F2AC20F721B800C7E59D /* CustomCameraViewController.m */; };
 		3516F2AF20F7244B00C7E59D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3516F2AE20F7244B00C7E59D /* AVFoundation.framework */; };
+		35AFDD0820F96C92008C2328 /* CustomCaptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AFDD0720F96C92008C2328 /* CustomCaptionViewController.m */; };
 		35D8D5CF20F4125900B5D12C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D5CE20F4125900B5D12C /* AppDelegate.m */; };
 		35D8D5D220F4125900B5D12C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D8D5D120F4125900B5D12C /* ViewController.m */; };
 		35D8D5D520F4125900B5D12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D8D5D320F4125900B5D12C /* Main.storyboard */; };
@@ -57,6 +58,8 @@
 		3516F2AB20F721B800C7E59D /* CustomCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
 		3516F2AC20F721B800C7E59D /* CustomCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
 		3516F2AE20F7244B00C7E59D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		35AFDD0620F96C92008C2328 /* CustomCaptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCaptionViewController.h; sourceTree = "<group>"; };
+		35AFDD0720F96C92008C2328 /* CustomCaptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCaptionViewController.m; sourceTree = "<group>"; };
 		35D8D5CA20F4125900B5D12C /* instagramisha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagramisha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D8D5CD20F4125900B5D12C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		35D8D5CE20F4125900B5D12C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				35F2517A20F82A82009554AB /* SignUpViewController.m */,
 				35F2517C20F86A43009554AB /* UpdateImageViewController.h */,
 				35F2517D20F86A43009554AB /* UpdateImageViewController.m */,
+				35AFDD0620F96C92008C2328 /* CustomCaptionViewController.h */,
+				35AFDD0720F96C92008C2328 /* CustomCaptionViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35AFDD0820F96C92008C2328 /* CustomCaptionViewController.m in Sources */,
 				35D8D60220F421B300B5D12C /* LoginViewController.m in Sources */,
 				35D8D61E20F6A70400B5D12C /* PostCollectionViewCell.m in Sources */,
 				35D8D5D220F4125900B5D12C /* ViewController.m in Sources */,

@@ -838,18 +838,15 @@
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8w-CT-arr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="490"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Caption goes here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gHR-7V-JtN">
-                                        <rect key="frame" x="8" y="224" width="359" height="43"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="eNi-2C-3Lc"/>
                                     <constraint firstAttribute="height" constant="490" id="vo6-iz-s9I"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="LeO-eo-WGR" appends="YES" id="Cdw-Mp-aVT"/>
+                                    <outletCollection property="gestureRecognizers" destination="Ipd-cj-md3" appends="YES" id="Sxx-g8-smb"/>
+                                </connections>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BKM-Bw-LuV">
                                 <rect key="frame" x="247" y="498" width="112" height="120"/>
@@ -884,7 +881,6 @@
                                 <state key="normal" image="circle pluss"/>
                                 <connections>
                                     <action selector="didTapCaption:" destination="ahj-MV-Biq" eventType="touchUpInside" id="42q-Mx-Hul"/>
-                                    <outletCollection property="gestureRecognizers" destination="VRI-5v-lA5" appends="YES" id="Aqb-xk-Es6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Capture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JP-BV-lAa">
@@ -901,11 +897,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHR-7V-JtN">
+                                <rect key="frame" x="0.0" y="491" width="375" height="33"/>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="6K6-xa-Aje"/>
+                                    <constraint firstAttribute="height" constant="33" id="GTv-Dm-AKh"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="aVW-kd-rNh" appends="YES" id="miM-Pt-Sah"/>
+                                </connections>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="d8w-CT-arr" firstAttribute="top" secondItem="P6j-PR-knb" secondAttribute="top" id="1UK-x5-xE2"/>
+                            <constraint firstItem="gHR-7V-JtN" firstAttribute="top" secondItem="d8w-CT-arr" secondAttribute="bottom" constant="1" id="G6d-WO-Dwp"/>
                             <constraint firstItem="6Ao-am-kRr" firstAttribute="top" secondItem="d8w-CT-arr" secondAttribute="bottom" constant="28" id="PNy-eO-9Ox"/>
+                            <constraint firstItem="gHR-7V-JtN" firstAttribute="leading" secondItem="P6j-PR-knb" secondAttribute="leading" id="Yrv-Il-bfa"/>
                             <constraint firstItem="DNH-i2-lCp" firstAttribute="leading" secondItem="6Ao-am-kRr" secondAttribute="trailing" constant="28" id="Yyg-ve-cSZ"/>
                             <constraint firstItem="DNH-i2-lCp" firstAttribute="top" secondItem="d8w-CT-arr" secondAttribute="bottom" constant="28" id="b0s-FH-dep"/>
                             <constraint firstItem="6Ao-am-kRr" firstAttribute="leading" secondItem="BZ4-7N-DfK" secondAttribute="leading" constant="36" id="bS5-Pw-1Zx"/>
@@ -925,16 +939,22 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="captionButton" destination="DNH-i2-lCp" id="3Mv-oY-W6M"/>
                         <outlet property="captionText" destination="gHR-7V-JtN" id="DeM-D2-GCs"/>
+                        <outlet property="captionTextView" destination="gHR-7V-JtN" id="q1y-eg-XdS"/>
                         <outlet property="captureImageView" destination="BKM-Bw-LuV" id="GDb-Dp-ve8"/>
                         <outlet property="previewView" destination="d8w-CT-arr" id="KCf-dm-Nnd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xse-8D-KEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="VRI-5v-lA5">
+                <tapGestureRecognizer id="aVW-kd-rNh">
                     <connections>
-                        <segue destination="1LA-4d-fcF" kind="presentation" id="Jjg-7D-lQV"/>
+                        <action selector="didTapCaption:" destination="ahj-MV-Biq" id="mxl-5A-ehV"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="LeO-eo-WGR"/>
+                <tapGestureRecognizer id="Ipd-cj-md3">
+                    <connections>
+                        <action selector="didTapAway:" destination="ahj-MV-Biq" id="9a2-ID-5Jh"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -987,30 +1007,43 @@
             </objects>
             <point key="canvasLocation" x="5359.1999999999998" y="274.81259370314842"/>
         </scene>
-        <!--View Controller-->
+        <!--Custom Caption View Controller-->
         <scene sceneID="7Mn-Ap-VeK">
             <objects>
-                <viewController id="1LA-4d-fcF" sceneMemberID="viewController">
+                <viewController id="1LA-4d-fcF" customClass="CustomCaptionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DI7-qP-Tqm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSD-ue-7uF">
-                                <rect key="frame" x="170" y="385" width="34" height="30"/>
+                                <rect key="frame" x="170" y="378" width="34" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="didTapSave:" destination="1LA-4d-fcF" eventType="touchUpInside" id="BCX-r8-485"/>
+                                </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Caption goes here!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="och-IB-qC2">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="och-IB-qC2">
                                 <rect key="frame" x="0.0" y="135" width="375" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption goes here!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUl-u4-Ld9">
+                                <rect key="frame" x="115" y="106" width="145" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Ouh-yO-ncN"/>
                     </view>
+                    <connections>
+                        <outlet property="captionView" destination="och-IB-qC2" id="LTH-f3-eQo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrD-dj-93o" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="x8P-MS-ZiQ"/>
@@ -1095,6 +1128,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="UqB-rv-Rrq"/>
         <segue reference="zTn-RA-Bpb"/>
-        <segue reference="O5u-eF-LXM"/>
+        <segue reference="toj-zB-Cc0"/>
     </inferredMetricsTieBreakers>
 </document>

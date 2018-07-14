@@ -1,9 +1,9 @@
 
-# Project 4 - *Name of App Here*
+# Project 4 - *Instagram Isha*
 
 **Name of your app** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **40** hours spent in total
 
 ## User Stories
 
@@ -36,19 +36,34 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [X] I actually put a post count on the profile VC
+- [X] tapped collection view cells go to detail VC
+
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. I want to implement the comments section because I would be able to apply things that i have learned from CodePath
+2. I want to discuss more about how delegates work in this app and the flow of it.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<a href="https://imgur.com/MQfdQxg"><img src="https://i.imgur.com/MQfdQxg.mp4" title="source: imgur.com" /></a>
+
+<img src='https://i.imgur.com/MQfdQxg.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/xZeAkLD.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/dpHVMol.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/vOmi9DO.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/vjkNoKg.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/qxviy9p.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/nPtlTop.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/qYfHDn3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/LcUgQ6M.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
+
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -65,7 +80,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-Copyright [yyyy] [name of copyright owner]
+Copyright [2018] [Roesha Nigos]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

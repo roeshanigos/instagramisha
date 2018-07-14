@@ -51,15 +51,14 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<img src='https://i.imgur.com/MQfdQxg.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://imgur.com/a/xZeAkLD.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://imgur.com/a/dpHVMol.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://imgur.com/a/vOmi9DO.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://imgur.com/a/vjkNoKg.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://imgur.com/a/qxviy9p.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://imgur.com/a/nPtlTop.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://imgur.com/a/qYfHDn3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://imgur.com/a/LcUgQ6M.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+https://i.imgur.com/MQfdQxg
+https://imgur.com/a/xZeAkLD
+https://imgur.com/a/dpHVMol
+https://imgur.com/a/vOmi9DO.gif
+https://imgur.com/a/vjkNoKg.gif
+https://imgur.com/a/qxviy9p
+https://imgur.com/a/nPtlTop.gif
+https://imgur.com/a/LcUgQ6M
 https://imgur.com/a/LcUgQ6M
 
 

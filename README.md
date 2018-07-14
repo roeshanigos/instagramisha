@@ -54,10 +54,10 @@ Here's a walkthrough of implemented user stories:
 - https://i.imgur.com/MQfdQxg
 - https://imgur.com/a/xZeAkLD
 - https://imgur.com/a/dpHVMol
-- https://imgur.com/a/vOmi9DO.gif
-- https://imgur.com/a/vjkNoKg.gif
+- https://imgur.com/a/vOmi9DO
+- https://imgur.com/a/vjkNoKg
 - https://imgur.com/a/qxviy9p
-- https://imgur.com/a/nPtlTop.gif
+- https://imgur.com/a/nPtlTop
 - https://imgur.com/a/LcUgQ6M
 - https://imgur.com/a/LcUgQ6M
 
